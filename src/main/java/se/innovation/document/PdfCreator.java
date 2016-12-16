@@ -26,8 +26,7 @@ public class PdfCreator {
         // step 3
         document.open();
         // step 4
-        document.add(new Paragraph("Hello World!"));
-        document.add(new Paragraph("This is my first test with itextpdf"));
+        document.add(new Paragraph("Hello World! This is Dracula!"));
         // step 5
         document.close();
     }
