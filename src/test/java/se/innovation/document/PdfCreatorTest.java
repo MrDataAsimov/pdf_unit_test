@@ -15,13 +15,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 public class PdfCreatorTest {
 
     static final String path = "./target/document/pdf/";
     static final String PDF =  path + "hello_itext.pdf";
+
+    private static String extractPdfText(byte[] pdfData) throws IOException {
+        PDDocument pdfDocument = PDDocument.load(new ByteArrayInputStream(pdfData));
+        try {
+            return new PDFTextStripper().getText(pdfDocument);
+        } finally {
+            pdfDocument.close();
+        }
+    }
 
     @Test
     public void testPdfCreator() throws IOException, DocumentException {
@@ -55,15 +63,6 @@ public class PdfCreatorTest {
         assertEquals(true, matcher.find());
 
         assertEquals("Hello", matcher.group(1));
-    }
-
-    private static String extractPdfText(byte[] pdfData) throws IOException {
-        PDDocument pdfDocument = PDDocument.load(new ByteArrayInputStream(pdfData));
-        try {
-            return new PDFTextStripper().getText(pdfDocument);
-        } finally {
-            pdfDocument.close();
-        }
     }
 
 }
