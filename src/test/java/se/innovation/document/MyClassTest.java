@@ -16,10 +16,20 @@ public class MyClassTest {
     }
 
     @Test
-    public void testMockMyClass() {
+    public void testMockMyClassReturnFalse() {
         MyClass myClassSpy = Mockito.spy(new MyClass());
         Mockito.doReturn(false).when(myClassSpy).getInverse(false);
 
         assertEquals(false, myClassSpy.getInverse(false));
+        assertEquals(false, myClassSpy.getInverse(true));
+    }
+
+    @Test
+    public void testMockMyClassReturnTrue() {
+        MyClass myClassSpy = Mockito.spy(new MyClass());
+        Mockito.doReturn(true).when(myClassSpy).getInverse(true);
+
+        assertEquals(true, myClassSpy.getInverse(true));
+        assertEquals(true, myClassSpy.getInverse(false));
     }
 }
