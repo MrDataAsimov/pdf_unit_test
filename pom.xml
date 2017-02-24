@@ -30,13 +30,6 @@
             <version>1.5.6.LIFERAY-PATCHED-1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.easymock/easymock -->
-        <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
-            <version>3.4</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.powermock/powermock-api-easymock -->
         <dependency>
             <groupId>org.powermock</groupId>
