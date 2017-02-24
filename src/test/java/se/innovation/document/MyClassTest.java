@@ -32,4 +32,6 @@ public class MyClassTest {
         assertEquals(true, myClassSpy.getInverse(true));
         assertEquals(true, myClassSpy.getInverse(false));
     }
+
+
 }
